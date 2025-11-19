@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Header } from "rrr";
+import { Header, ThemeContext } from "rrr";
 import "./App.css";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
@@ -8,7 +8,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <ThemeContext value={"dark"}>
       <Header></Header>
       <div>
         <a href="https://vite.dev" target="_blank">
@@ -30,7 +30,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </ThemeContext>
   );
 }
 
