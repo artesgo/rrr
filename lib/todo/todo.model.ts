@@ -14,6 +14,8 @@ export function useTodo(_todos: ITodo[]) {
 
   useEffect(() => {
     setLoading(true);
+    setError(null);
+
     const fetchData = async () => {
       try {
         const response = await fetch(
