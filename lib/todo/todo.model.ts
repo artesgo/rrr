@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export interface ITodo {
   id: number;
@@ -11,6 +11,7 @@ export function useTodo(_todos: ITodo[]) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
+  const done = useMemo(() => todos.filter((todo) => todo.completed), [todos]);
 
   useEffect(() => {
     setLoading(true);
@@ -42,6 +43,7 @@ export function useTodo(_todos: ITodo[]) {
     error,
     query,
     setQuery,
+    done,
     checkAll: () =>
       setTodos(todos.map((todo) => ({ ...todo, completed: true }))),
     uncheckAll: () =>

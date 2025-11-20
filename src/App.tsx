@@ -8,12 +8,14 @@ function App() {
     >
       <ThemeContext value={"dark"}>
         <Header></Header>
-        <TodoList
-          todo={[
-            { id: 1, title: "todo", completed: false },
-            { id: 2, title: "todo", completed: true },
-          ]}
-        ></TodoList>
+        <main>
+          <TodoList
+            todo={[
+              { id: 1, title: "todo", completed: false },
+              { id: 2, title: "todo", completed: true },
+            ]}
+          ></TodoList>
+        </main>
       </ThemeContext>
     </UserContext>
   );
