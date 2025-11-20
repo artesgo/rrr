@@ -54,6 +54,7 @@ export function useTodo(_todos: ITodo[]) {
           todo.id === id ? { ...todo, completed: !todo.completed } : todo
         )
       ),
+    clear: () => setTodos([]),
     edit: (id: number, title: string) =>
       setTodos(
         todos.map((todo) => (todo.id === id ? { ...todo, title } : todo))

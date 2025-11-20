@@ -13,6 +13,9 @@ export default defineConfig({
     libInjectCss(),
     dts({ tsconfigPath: resolve(__dirname, "tsconfig.build.json") }),
   ],
+  define: {
+    "import.meta.vitest": "undefined",
+  },
   build: {
     lib: {
       entry: resolve(__dirname, "lib/main.ts"),

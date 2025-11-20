@@ -27,3 +27,5 @@ dist-ssr
 *.tgz
 lib/**/*.js
 src/**/*.js
+# test artifacts
+/html
