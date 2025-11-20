@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export interface ITodo {
   id: number;
@@ -8,8 +8,38 @@ export interface ITodo {
 
 export function useTodo(_todos: ITodo[]) {
   const [todos, setTodos] = useState(_todos);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    setLoading(true);
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/todos"
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setTodos(data);
+      } catch (error) {
+        setError(error as string);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [query]);
+
   return {
     todos,
+    setTodos,
+    loading,
+    error,
+    query,
+    setQuery,
     checkAll: () =>
       setTodos(todos.map((todo) => ({ ...todo, completed: true }))),
     uncheckAll: () =>
