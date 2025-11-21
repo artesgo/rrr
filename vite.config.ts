@@ -1,3 +1,4 @@
+import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { glob } from "glob";
 import { fileURLToPath } from "node:url";
@@ -5,13 +6,13 @@ import { extname, relative, resolve } from "path";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
-
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     libInjectCss(),
     dts({ tsconfigPath: resolve(__dirname, "tsconfig.build.json") }),
+    tailwindcss(),
   ],
   define: {
     "import.meta.vitest": "undefined",

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-
+import { useDebounce } from "../debounce/debounce";
 export interface ITodo {
   id: number;
   title: string;
@@ -12,6 +12,7 @@ export function useTodo(_todos: ITodo[]) {
   const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const done = useMemo(() => todos.filter((todo) => todo.completed), [todos]);
+  const debouncedQuery = useDebounce(query, 500);
 
   useEffect(() => {
     setLoading(true);
@@ -34,7 +35,7 @@ export function useTodo(_todos: ITodo[]) {
       }
     };
     fetchData();
-  }, [query]);
+  }, [debouncedQuery]);
 
   return {
     todos,

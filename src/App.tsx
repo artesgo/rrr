@@ -8,7 +8,7 @@ function App() {
     >
       <ThemeContext value={"dark"}>
         <Header></Header>
-        <main>
+        <main className="border border-dashed text-gray-400 p-4">
           <TodoList
             todo={[
               { id: 1, title: "todo", completed: false },
