@@ -20,7 +20,8 @@
     "build": "tsc -b && vite build",
     "build:lib": "tsc -b ./tsconfig.build.json && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest --ui"
   },
   "peerDependencies": {
     "react": "^19.2.0",

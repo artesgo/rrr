@@ -4,11 +4,6 @@
   margin: 0;
 }
 
-.todoItem {
-  border-bottom: 1px solid #ccc;
-  text-align: left;
-}
-
 .count {
   font-size: 0.75rem;
 }

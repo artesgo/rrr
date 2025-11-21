@@ -69,4 +69,18 @@ describe("useTodo", () => {
     expect(result.current.todos.length).toEqual(0);
     expect(result.current.done.length).toEqual(0);
   });
+
+  test("should edit the todo title", () => {
+    const { result } = renderHook(() =>
+      useTodo([
+        { id: 1, title: "test", completed: false },
+        { id: 2, title: "test", completed: false },
+      ])
+    );
+    act(() => {
+      result.current.edit(1, "new title");
+    });
+    expect(result.current.todos.length).toEqual(2);
+    expect(result.current.todos[0].title).toEqual("new title");
+  });
 });
