@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useDebounce } from "../debounce/debounce";
+import { useDebounce } from "../utils/debounce";
 export interface ITodo {
   id: number;
   title: string;

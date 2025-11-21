@@ -9,5 +9,6 @@ export default defineConfig({
     globals: true,
     setupFiles: "./setupTests.ts",
     reporters: ["html"],
+    include: ["{src,lib}/**/*.test.tsx"],
   },
 });
